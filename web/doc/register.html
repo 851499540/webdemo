@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/index.css" type="text/css" />
+    <title>INFINITY 首页</title>
+    <style type="text/css">
+        
+        .logframe{
+            background-color: white;
+            position: relative;
+            margin: auto;
+            top: 50px;
+            
+            height: 480px;
+            width: 400px;
+            border: solid 1px;
+        }
+        .logt{
+            padding: 30px 0;
+            border-bottom: solid 1px;
+        }
+        .logtitle{
+            
+            text-align: center;
+            font-size: 30px;
+
+        }
+        .log {
+
+            
+            margin:74px 0;
+        }
+        .log input{
+            display: block;
+            margin: 0px 123px;
+            height: 20px;
+            border: 1px solid;
+            border-radius: 3px;
+        }
+        .log p{
+            font-size: 2px;
+            text-align: center;
+            visibility:hidden;
+        }
+        .logbtn{
+            
+            position: relative;
+            
+        }
+        .logb{
+            border-top: solid 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <ul>
+            <li><a href="./index.html">INFINITY STORE&nbsp&nbsp&nbsp|&nbsp&nbsp</a></li>
+            <li>
+                <a href="#">商品分类</a>
+                <ul>
+                    <li><a href="#">热销商品</a></li>
+                    <li><a href="#">衣服饰品</a></li>
+                    <li><a href="#">实用道具</a></li>
+                    
+                </ul>
+
+            </li>
+            <li style="float: right;right: 30px">
+                <a href="#">个人中心</a>
+                <ul>
+                    <li><a href="./login.html">登录/注册</a></li>
+                    <li><a href="./index.html">退出</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="bd">
+        <div class="logframe">
+            <div class="logt">
+                <p class="logtitle">INIFINITY</p>
+            </div>
+            <form class="log" action="./php/registercheck.php" method="post" onsubmit="return toVaild()">
+                
+                <input type="text" name="usrname" placeholder="用户名(5~12位字母或数字)" maxlength="12" minlength="5" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+                <p class="error_1">存在非法字符</p>
+                <input type="password" name="passwd" placeholder="密码(6~15位字母或数字)" maxlength="15" minlength="6" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+                <p class="error_2 ">有非法字符</p>
+                
+                <input type="password" name="assure" placeholder="再次确认密码"  maxlength="15" minlength="6" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+                <p class="error_3" >密码与第一次输入不同</p>
+		        <input type="text" name="captchacode" placeholder="输入验证码"  maxlength="4">
+                <img src="./php/captchacode.php" alt="看不清?点击刷新" onclick="this.src=this.src+'?'+new Date().getTime();" style="margin: 0 0 40px 143px; " >
+
+                <hr/>
+                <input type="submit" name="submit" class="logbtn" value="注册" style="margin: 35px 0 0 170px;" >
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+    <script type="text/javascript">
+        var h = document.documentElement.clientHeight;
+        var bod = document.getElementById('bd');
+        bod.style.height = h - 95 +"px";
+
+
+        function toVaild(){
+
+            var usrname = document.getElementByName('usrname').value;
+            return true;
+        }
+        
+    </script>
+</html>
